@@ -62,8 +62,8 @@ augroup vimrcEx
 augroup END
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
 
@@ -83,12 +83,16 @@ if executable('ag')
 endif
 
 " Color scheme
-colorscheme molokai
+"colorscheme molokai
+"colorscheme github
+"colorscheme codedark
+"colorscheme material
+colorscheme space_vim_theme
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Make it obvious where 80 characters is
-set textwidth=80
+set textwidth=120
 set colorcolumn=+1
 
 " Numbers
@@ -120,10 +124,10 @@ map <Leader>ct :!ctags -R .<CR>
 nnoremap <leader><leader> <c-^>
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+"nnoremap <Left> :echoe "Use h"<CR>
+"nnoremap <Right> :echoe "Use l"<CR>
+"nnoremap <Up> :echoe "Use k"<CR>
+"nnoremap <Down> :echoe "Use j"<CR>
 
 " vim-rspec mappings
 nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
@@ -145,6 +149,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
@@ -153,7 +159,7 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 autocmd Syntax javascript set syntax=jquery " JQuery syntax support
 
 set matchpairs+=<:>
-set statusline+=%{fugitive#statusline()} "  Git Hotness
+"set statusline+=%{fugitive#statusline()} "  Git Hotness
 
 " Nerd Tree
 let NERDChristmasTree=0
@@ -177,24 +183,50 @@ let g:user_emmet_mode='i' " enable for insert mode
 " Search results high light
 set hlsearch
 
+
 " nohlsearch shortcut
-nmap -hl :nohlsearch<cr>
-nmap +hl :set hlsearch<cr>
+"nmap -hl :nohlsearch<cr>
+"nmap +hl :set hlsearch<cr>
 
 " Javascript syntax hightlight
 syntax enable
 
 " YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_autoclose_preview_window_after_completion=1
+"nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 set laststatus=2 " Always display the status line
-set statusline+=%{fugitive#statusline()} "  Git Hotness
+"set statusline+=%{fugitive#statusline()} "  Git Hotness
 
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+      \ }
+
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+
+set showtabline=2
+
+"Rainbow bucket
+let g:rainbow_active = 1
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
@@ -208,7 +240,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 set shell=bash\ -i
 
 " Snippets author
-let g:snips_author = 'Yuez'
+let g:snips_author = 'Sunputao'
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
