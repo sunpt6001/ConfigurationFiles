@@ -1,0 +1,31 @@
+set number
+set nocompatible
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set wildmenu
+set laststatus=2
+set ruler
+set cursorline
+"set cursorcolumn
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+set foldmethod=indent
+set foldmethod=syntax
+
+set tabline=2
+
+nnoremap <C-f> <C-d>
+nnoremap <C-b> <C-u>
+nnoremap <C-n> :w<CR>:bn<CR>
+nnoremap <C-p> :w<CR>:bp<CR>
+
+map H ^
+map L $
+
+set surround
+set easymotion

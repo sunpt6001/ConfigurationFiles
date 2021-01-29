@@ -1,0 +1,11 @@
+--with-features=huge \
+--enable-multibyte \
+--enable-pythoninterp=dynamic \
+--enable-python3interp=dynamic \
+--enable-cscope \
+--enable-fontset \
+--enable-largefile \
+--disable-netbeans \
+--with-compiledby="sunputao" \
+--enable-fail-if-missing \
+--prefix=/Users/bytedance/usr_local
