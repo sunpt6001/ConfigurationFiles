@@ -1,5 +1,5 @@
 set number
-set nocompatible
+"set nocompatible
 set incsearch
 set hlsearch
 set ignorecase
@@ -8,7 +8,7 @@ set wildmenu
 set laststatus=2
 set ruler
 set cursorline
-"set cursorcolumn
+set cursorcolumn
 
 set expandtab
 set tabstop=4

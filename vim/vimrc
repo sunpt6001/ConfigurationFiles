@@ -85,15 +85,14 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Color scheme
-"colorscheme molokai
-"colorscheme github
-"colorscheme codedark
-"colorscheme material
-colorscheme space_vim_theme
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+"   Range:   233 (darkest) ~ 238 (lightest)
+"   Default: 235
+let g:space_vim_dark_background = 234
 
+" Color scheme
+colorscheme space-vim-dark
+set termguicolors
+hi LineNr ctermbg=NONE guibg=NONE
 " Make it obvious where 80 characters is
 set textwidth=120
 set colorcolumn=+1
@@ -154,6 +153,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
+nnoremap <C-d> :bd<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
